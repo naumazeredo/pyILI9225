@@ -243,4 +243,4 @@ class Display(object):
             self.data_repeat(GRAM_DATA_REG, color, w)
 
     def clear(self, color):
-        draw_fill_rect(0, 0, self._width-1, self.height-1, color)
+        self.draw_fill_rect(0, 0, self._width-1, self.height-1, color)
