@@ -242,5 +242,5 @@ class Display(object):
             self.register(RAM_ADDR_SET2, y)
             self.data_repeat(GRAM_DATA_REG, color, w)
 
-    def clear_screen(self, color):
+    def clear(self, color):
         draw_fill_rect(0, 0, self._width-1, self.height-1, color)
