@@ -20,14 +20,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import pyILI9225 as TFT
+import pyILI9225 as ILI9225
 
 # Raspberry Pi configuration
 RS = 2
 RST = 3
 
 # Create TFT LCD display class
-disp = TFT.Display(RS, RST)
+disp = ILI9225.Display(RS, RST)
 
 # Initialize display
 disp.begin()
@@ -35,4 +35,4 @@ disp.begin()
 # Draw square
 for x in range(10, 15):
     for y in range(10, 15):
-        disp.draw_pixel(x, y, TFT.ILI9225_BLACK)
+        disp.draw_pixel(x, y, ILI9225.BLACK)
