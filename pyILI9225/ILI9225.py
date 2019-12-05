@@ -22,7 +22,7 @@
 
 import numbers
 import time
-import _bcm2835 import *
+import libbcm2835._bcm2835 import *
 
 
 # ILI9225 screen size
@@ -131,7 +131,7 @@ class ILI9225(object):
         bcm2835_gpio_write(self._rst, HIGH)
         bcm2835_delay(100)
 
-    def _init(self):
+    def setup(self):
         # Start Initial sequence
         self.register(ILI9225_DRIVER_OUTPUT_CTRL, 0x031C)   # set the display line number and display direction
         self.register(ILI9225_LCD_AC_DRIVING_CTRL, 0x0100)  # set 1 line inversion
@@ -184,7 +184,7 @@ class ILI9225(object):
         interact with the display are called.
         """
         self.reset()
-        self._init()
+        self.setup()
 
     def command(self, data):
         """Write a byte to the display as command data."""
