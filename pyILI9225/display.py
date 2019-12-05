@@ -93,7 +93,7 @@ def split_i16(i):
     return [(i >> 8) & 0xFF, i & 0xFF]
 
 
-class ILI9225(object):
+class Display(object):
     """Representation of an ILI9225 TFT LCD."""
 
     def __init__(self,

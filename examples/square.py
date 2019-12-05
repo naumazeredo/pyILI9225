@@ -20,15 +20,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import pyILI9225 as TFT
+import pyILI9225 as ILI9225
 
 # Raspberry Pi configuration
-RS = 3
-RST = 5
-CS = 24
+RS = 2
+RST = 3
 
 # Create TFT LCD display class
-disp = TFT.ILI9225(RS, RST, CS)
+disp = ILI9225.Display(RS, RST)
 
 # Initialize display
 disp.begin()
