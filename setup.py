@@ -16,7 +16,7 @@ except ImportError:
 from setuptools import setup, find_packages
 
 
-classifiers = ['Development Status :: 4 - Beta',
+classifiers = ['Development Status :: 3 - Alpha',
                'Operating System :: POSIX :: Linux',
                'License :: OSI Approved :: MIT License',
                'Intended Audience :: Developers',
@@ -25,14 +25,14 @@ classifiers = ['Development Status :: 4 - Beta',
                'Topic :: Software Development',
                'Topic :: System :: Hardware']
 
-setup(name              = 'BHack_ILI9225',
-      version           = '1.0.0',
-      author            = 'Ian Firns',
-      author_email      = 'firnsy@gmail.com',
+setup(name              = 'pyILI9225',
+      version           = '0.1.0',
+      author            = 'Naum Azeredo',
+      author_email      = 'naumazeredo@gmail.com',
       description       = 'Library to control an ILI9225 TFT LCD display.',
       license           = 'MIT',
       classifiers       = classifiers,
-      url               = 'https://github.com/firnsy/BHack_Python_ILI9341/',
-      dependency_links  = ['https://github.com/adafruit/Adafruit_Python_GPIO/tarball/master#egg=Adafruit-GPIO-0.6.5'],
-      install_requires  = ['Adafruit-GPIO>=0.6.5'],
+      url               = 'https://github.com/naumazeredo/pyILI9225',
+      dependency_links  = ['wiringpi'],
+      install_requires  = ['wiringpi==2.46.0'],
       packages          = find_packages())
