@@ -26,59 +26,59 @@ from libbcm2835._bcm2835 import *
 
 
 # ILI9225 screen size
-ILI9225_TFTWIDTH = 176
-ILI9225_TFTHEIGHT = 220
+TFTWIDTH = 176
+TFTHEIGHT = 220
 
 # ILI9225 LCD Registers
-ILI9225_DRIVER_OUTPUT_CTRL = 0x01  # Driver Output Control
-ILI9225_LCD_AC_DRIVING_CTRL = 0x02  # LCD AC Driving Control
-ILI9225_ENTRY_MODE = 0x03  # Entry Mode
-ILI9225_DISP_CTRL1 = 0x07  # Display Control 1
-ILI9225_BLANK_PERIOD_CTRL1 = 0x08  # Blank Period Control
-ILI9225_FRAME_CYCLE_CTRL = 0x0B  # Frame Cycle Control
-ILI9225_INTERFACE_CTRL = 0x0C  # Interface Control
-ILI9225_OSC_CTRL = 0x0F  # Osc Control
-ILI9225_POWER_CTRL1 = 0x10  # Power Control 1
-ILI9225_POWER_CTRL2 = 0x11  # Power Control 2
-ILI9225_POWER_CTRL3 = 0x12  # Power Control 3
-ILI9225_POWER_CTRL4 = 0x13  # Power Control 4
-ILI9225_POWER_CTRL5 = 0x14  # Power Control 5
-ILI9225_VCI_RECYCLING = 0x15  # VCI Recycling
-ILI9225_RAM_ADDR_SET1 = 0x20  # Horizontal GRAM Address Set
-ILI9225_RAM_ADDR_SET2 = 0x21  # Vertical GRAM Address Set
-ILI9225_GRAM_DATA_REG = 0x22  # GRAM Data Register
-ILI9225_GATE_SCAN_CTRL = 0x30  # Gate Scan Control Register
-ILI9225_VERTICAL_SCROLL_CTRL1 = 0x31  # Vertical Scroll Control 1 Register
-ILI9225_VERTICAL_SCROLL_CTRL2 = 0x32  # Vertical Scroll Control 2 Register
-ILI9225_VERTICAL_SCROLL_CTRL3 = 0x33  # Vertical Scroll Control 3 Register
-ILI9225_PARTIAL_DRIVING_POS1 = 0x34  # Partial Driving Position 1 Register
-ILI9225_PARTIAL_DRIVING_POS2 = 0x35  # Partial Driving Position 2 Register
-ILI9225_HORIZONTAL_WINDOW_ADDR1 = 0x36  # Horizontal Address Start Position
-ILI9225_HORIZONTAL_WINDOW_ADDR2 = 0x37  # Horizontal Address End Position
-ILI9225_VERTICAL_WINDOW_ADDR1 = 0x38  # Vertical Address Start Position
-ILI9225_VERTICAL_WINDOW_ADDR2 = 0x39  # Vertical Address End Position
-ILI9225_GAMMA_CTRL1 = 0x50  # Gamma Control 1
-ILI9225_GAMMA_CTRL2 = 0x51  # Gamma Control 2
-ILI9225_GAMMA_CTRL3 = 0x52  # Gamma Control 3
-ILI9225_GAMMA_CTRL4 = 0x53  # Gamma Control 4
-ILI9225_GAMMA_CTRL5 = 0x54  # Gamma Control 5
-ILI9225_GAMMA_CTRL6 = 0x55  # Gamma Control 6
-ILI9225_GAMMA_CTRL7 = 0x56  # Gamma Control 7
-ILI9225_GAMMA_CTRL8 = 0x57  # Gamma Control 8
-ILI9225_GAMMA_CTRL9 = 0x58  # Gamma Control 9
-ILI9225_GAMMA_CTRL10 = 0x59  # Gamma Control 10
+DRIVER_OUTPUT_CTRL = 0x01  # Driver Output Control
+LCD_AC_DRIVING_CTRL = 0x02  # LCD AC Driving Control
+ENTRY_MODE = 0x03  # Entry Mode
+DISP_CTRL1 = 0x07  # Display Control 1
+BLANK_PERIOD_CTRL1 = 0x08  # Blank Period Control
+FRAME_CYCLE_CTRL = 0x0B  # Frame Cycle Control
+INTERFACE_CTRL = 0x0C  # Interface Control
+OSC_CTRL = 0x0F  # Osc Control
+POWER_CTRL1 = 0x10  # Power Control 1
+POWER_CTRL2 = 0x11  # Power Control 2
+POWER_CTRL3 = 0x12  # Power Control 3
+POWER_CTRL4 = 0x13  # Power Control 4
+POWER_CTRL5 = 0x14  # Power Control 5
+VCI_RECYCLING = 0x15  # VCI Recycling
+RAM_ADDR_SET1 = 0x20  # Horizontal GRAM Address Set
+RAM_ADDR_SET2 = 0x21  # Vertical GRAM Address Set
+GRAM_DATA_REG = 0x22  # GRAM Data Register
+GATE_SCAN_CTRL = 0x30  # Gate Scan Control Register
+VERTICAL_SCROLL_CTRL1 = 0x31  # Vertical Scroll Control 1 Register
+VERTICAL_SCROLL_CTRL2 = 0x32  # Vertical Scroll Control 2 Register
+VERTICAL_SCROLL_CTRL3 = 0x33  # Vertical Scroll Control 3 Register
+PARTIAL_DRIVING_POS1 = 0x34  # Partial Driving Position 1 Register
+PARTIAL_DRIVING_POS2 = 0x35  # Partial Driving Position 2 Register
+HORIZONTAL_WINDOW_ADDR1 = 0x36  # Horizontal Address Start Position
+HORIZONTAL_WINDOW_ADDR2 = 0x37  # Horizontal Address End Position
+VERTICAL_WINDOW_ADDR1 = 0x38  # Vertical Address Start Position
+VERTICAL_WINDOW_ADDR2 = 0x39  # Vertical Address End Position
+GAMMA_CTRL1 = 0x50  # Gamma Control 1
+GAMMA_CTRL2 = 0x51  # Gamma Control 2
+GAMMA_CTRL3 = 0x52  # Gamma Control 3
+GAMMA_CTRL4 = 0x53  # Gamma Control 4
+GAMMA_CTRL5 = 0x54  # Gamma Control 5
+GAMMA_CTRL6 = 0x55  # Gamma Control 6
+GAMMA_CTRL7 = 0x56  # Gamma Control 7
+GAMMA_CTRL8 = 0x57  # Gamma Control 8
+GAMMA_CTRL9 = 0x58  # Gamma Control 9
+GAMMA_CTRL10 = 0x59  # Gamma Control 10
 
-ILI9225C_INVOFF = 0x20
-ILI9225C_INVON = 0x21
+C_INVOFF = 0x20
+C_INVON = 0x21
 
-ILI9225_BLACK = 0x0000
-ILI9225_BLUE = 0x001F
-ILI9225_RED = 0xF800
-ILI9225_GREEN = 0x07E0
-ILI9225_CYAN = 0x07FF
-ILI9225_MAGENTA = 0xF81F
-ILI9225_YELLOW = 0xFFE0
-ILI9225_WHITE = 0xFFFF
+BLACK = 0x0000
+BLUE = 0x001F
+RED = 0xF800
+GREEN = 0x07E0
+CYAN = 0x07FF
+MAGENTA = 0xF81F
+YELLOW = 0xFFE0
+WHITE = 0xFFFF
 
 
 def color565(r, g, b):
@@ -93,13 +93,17 @@ def split_i16(i):
     return [(i >> 8) & 0xFF, i & 0xFF]
 
 
+def clamp(v, min_v, max_v):
+    return min(max(v, min_v), max_v)
+
+
 class Display(object):
     """Representation of an ILI9225 TFT LCD."""
 
     def __init__(self,
                  rs, rst,
-                 width=ILI9225_TFTWIDTH,
-                 height=ILI9225_TFTHEIGHT):
+                 width=TFTWIDTH,
+                 height=TFTHEIGHT):
         """Create an instance of the display using SPI communication. Must
         provide the GPIO pin number for the RS pin and the SPI driver. Can
         optionally provide the GPIO pin number for the reset pin as the rst
@@ -133,51 +137,51 @@ class Display(object):
 
     def setup(self):
         # Start Initial sequence
-        self.register(ILI9225_DRIVER_OUTPUT_CTRL, 0x031C)   # set the display line number and display direction
-        self.register(ILI9225_LCD_AC_DRIVING_CTRL, 0x0100)  # set 1 line inversion
-        self.register(ILI9225_ENTRY_MODE, 0x1030)           # set GRAM write direction and BGR=1.
-        self.register(ILI9225_BLANK_PERIOD_CTRL1, 0x0808)   # set the back porch and front porch
-        self.register(ILI9225_INTERFACE_CTRL, 0x0000)       # CPU interface
-        self.register(ILI9225_OSC_CTRL, 0x0801)             # set Osc  /*0e01*/
-        self.register(ILI9225_RAM_ADDR_SET1, 0x0000)        # RAM Address
-        self.register(ILI9225_RAM_ADDR_SET2, 0x0000)        # RAM Address
+        self.register(DRIVER_OUTPUT_CTRL, 0x031C)   # set the display line number and display direction
+        self.register(LCD_AC_DRIVING_CTRL, 0x0100)  # set 1 line inversion
+        self.register(ENTRY_MODE, 0x1030)           # set GRAM write direction and BGR=1.
+        self.register(BLANK_PERIOD_CTRL1, 0x0808)   # set the back porch and front porch
+        self.register(INTERFACE_CTRL, 0x0000)       # CPU interface
+        self.register(OSC_CTRL, 0x0801)             # set Osc  /*0e01*/
+        self.register(RAM_ADDR_SET1, 0x0000)        # RAM Address
+        self.register(RAM_ADDR_SET2, 0x0000)        # RAM Address
 
         # Power On sequence
         time.sleep(0.05)
-        self.register(ILI9225_POWER_CTRL1, 0x0A00)  # set SAP,DSTB,STB
-        self.register(ILI9225_POWER_CTRL2, 0x1038)  # set APON,PON,AON,VCI1EN,VC
+        self.register(POWER_CTRL1, 0x0A00)  # set SAP,DSTB,STB
+        self.register(POWER_CTRL2, 0x1038)  # set APON,PON,AON,VCI1EN,VC
         time.sleep(0.05)
-        self.register(ILI9225_POWER_CTRL3, 0x1121)  # set BT,DC1,DC2,DC3
-        self.register(ILI9225_POWER_CTRL4, 0x0066)  # set GVDD
-        self.register(ILI9225_POWER_CTRL5, 0x5F60)  # set VCOMH/VCOML voltage
+        self.register(POWER_CTRL3, 0x1121)  # set BT,DC1,DC2,DC3
+        self.register(POWER_CTRL4, 0x0066)  # set GVDD
+        self.register(POWER_CTRL5, 0x5F60)  # set VCOMH/VCOML voltage
 
         # Set GRAM area
-        self.register(ILI9225_GATE_SCAN_CTRL, 0x0000)
-        self.register(ILI9225_VERTICAL_SCROLL_CTRL1, 0x00DB)
-        self.register(ILI9225_VERTICAL_SCROLL_CTRL2, 0x0000)
-        self.register(ILI9225_VERTICAL_SCROLL_CTRL3, 0x0000)
-        self.register(ILI9225_PARTIAL_DRIVING_POS1, 0x00DB)
-        self.register(ILI9225_PARTIAL_DRIVING_POS2, 0x0000)
-        self.register(ILI9225_HORIZONTAL_WINDOW_ADDR1, 0x00AF)
-        self.register(ILI9225_HORIZONTAL_WINDOW_ADDR2, 0x0000)
-        self.register(ILI9225_VERTICAL_WINDOW_ADDR1, 0x00DB)
-        self.register(ILI9225_VERTICAL_WINDOW_ADDR2, 0x0000)
+        self.register(GATE_SCAN_CTRL, 0x0000)
+        self.register(VERTICAL_SCROLL_CTRL1, 0x00DB)
+        self.register(VERTICAL_SCROLL_CTRL2, 0x0000)
+        self.register(VERTICAL_SCROLL_CTRL3, 0x0000)
+        self.register(PARTIAL_DRIVING_POS1, 0x00DB)
+        self.register(PARTIAL_DRIVING_POS2, 0x0000)
+        self.register(HORIZONTAL_WINDOW_ADDR1, 0x00AF)
+        self.register(HORIZONTAL_WINDOW_ADDR2, 0x0000)
+        self.register(VERTICAL_WINDOW_ADDR1, 0x00DB)
+        self.register(VERTICAL_WINDOW_ADDR2, 0x0000)
 
         # Adjust GAMMA curve
-        self.register(ILI9225_GAMMA_CTRL1, 0x4000)
-        self.register(ILI9225_GAMMA_CTRL2, 0x060B)
-        self.register(ILI9225_GAMMA_CTRL3, 0x0C0A)
-        self.register(ILI9225_GAMMA_CTRL4, 0x0105)
-        self.register(ILI9225_GAMMA_CTRL5, 0x0A0C)
-        self.register(ILI9225_GAMMA_CTRL6, 0x0B06)
-        self.register(ILI9225_GAMMA_CTRL7, 0x0004)
-        self.register(ILI9225_GAMMA_CTRL8, 0x0501)
-        self.register(ILI9225_GAMMA_CTRL9, 0x0E00)
-        self.register(ILI9225_GAMMA_CTRL10, 0x000E)
+        self.register(GAMMA_CTRL1, 0x4000)
+        self.register(GAMMA_CTRL2, 0x060B)
+        self.register(GAMMA_CTRL3, 0x0C0A)
+        self.register(GAMMA_CTRL4, 0x0105)
+        self.register(GAMMA_CTRL5, 0x0A0C)
+        self.register(GAMMA_CTRL6, 0x0B06)
+        self.register(GAMMA_CTRL7, 0x0004)
+        self.register(GAMMA_CTRL8, 0x0501)
+        self.register(GAMMA_CTRL9, 0x0E00)
+        self.register(GAMMA_CTRL10, 0x000E)
 
         time.sleep(0.05)
 
-        self.register(ILI9225_DISP_CTRL1, 0x1017)
+        self.register(DISP_CTRL1, 0x1017)
 
     def begin(self):
         """Initialize the display. Should be called once before other calls that
@@ -185,6 +189,7 @@ class Display(object):
         """
         self.reset()
         self.setup()
+        self.clear(BLACK)
 
     def command(self, data):
         """Write a byte to the display as command data."""
@@ -193,13 +198,49 @@ class Display(object):
         return self
 
     def register(self, cmd, data):
-        """Write a byte command followed by 2 bytes of data."""
+        """Write a byte command followed by a word of data."""
         bcm2835_gpio_write(self._rs, LOW);
         bcm2835_spi_transfer(cmd);
         bcm2835_gpio_write(self._rs, HIGH);
         bcm2835_spi_write(data);
 
+    def data_array(self, cmd, data):
+        """Write a byte command followed by multiple words of data."""
+        bcm2835_gpio_write(self._rs, LOW);
+        bcm2835_spi_transfer(cmd);
+        bcm2835_gpio_write(self._rs, HIGH);
+        for d in data:
+            bcm2835_spi_write(d);
+
+    def data_repeat(self, cmd, data, count):
+        """Write a byte command followed by repeated words of data."""
+        bcm2835_gpio_write(self._rs, LOW);
+        bcm2835_spi_transfer(cmd);
+        bcm2835_gpio_write(self._rs, HIGH);
+        for i in range(count):
+            bcm2835_spi_write(data);
+
     def draw_pixel(self, x, y, color):
-        self.register(ILI9225_RAM_ADDR_SET1, x)
-        self.register(ILI9225_RAM_ADDR_SET2, y)
-        self.register(ILI9225_GRAM_DATA_REG, color)
+        if x < 0 or x >= self._width: return
+        if y < 0 or y >= self._height: return
+
+        self.register(RAM_ADDR_SET1, x)
+        self.register(RAM_ADDR_SET2, y)
+        self.register(GRAM_DATA_REG, color)
+
+    def draw_fill_rect(self, x1, y1, x2, y2, color):
+        if x1 < 0 or x1 >= self._width: return
+        if y1 < 0 or y1 >= self._height: return
+
+        x2 = clamp(x2, 0, self._width - 1)
+        y2 = clamp(y2, 0, self._height - 1)
+
+        w = y2 - y1 + 1
+
+        for y in range(y1, y2+1):
+            self.register(RAM_ADDR_SET1, x1)
+            self.register(RAM_ADDR_SET2, y)
+            self.data_repeat(GRAM_DATA_REG, color, w)
+
+    def clear_screen(color):
+        draw_fill_rect(0, 0, self._width-1, self.height-1, color)
