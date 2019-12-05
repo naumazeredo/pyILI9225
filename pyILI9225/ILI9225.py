@@ -22,7 +22,7 @@
 
 import numbers
 import time
-import wiringpi as wpi
+import _bcm2835 import *
 
 
 # ILI9225 screen size
@@ -97,7 +97,7 @@ class ILI9225(object):
     """Representation of an ILI9225 TFT LCD."""
 
     def __init__(self,
-                 rs, rst, cs,
+                 rs, rst,
                  width=ILI9225_TFTWIDTH,
                  height=ILI9225_TFTHEIGHT):
         """Create an instance of the display using SPI communication. Must
@@ -107,29 +107,29 @@ class ILI9225(object):
         """
         self._rs = rs
         self._rst = rst
-        self._cs = cs
         self.width = width
         self.height = height
 
-        # TODO: setup wiringpi outside
-        if wpi.wiringPiSetupGpio() == -1:
-            raise IOError('Could not setup WiringPi GPIO')
+        # TODO: setup outside
+        if not bcm2835_init():
+            raise IOError('Could not setup BCM')
 
-        if wpi.wiringPiSPISetup(0, 32000000) == -1:
-            raise IOError('Could not setup WiringPi SPI')
+        bcm2835_spi_begin()
+        bcm2835_spi_setBitOrder(BCM2835_SPI_BIT_ORDER_MSBFIRST)
+        bcm2835_spi_setDataMode(BCM2835_SPI_MODE0)
+        bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_8)
+        bcm2835_spi_chipSelect(BCM2835_SPI_CS0)
+        bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW)
 
     def reset(self):
         """Reset the display, if reset pin is connected."""
-        wpi.pinMode(self._rs, wpi.OUTPUT)
-        wpi.pinMode(self._rst, wpi.OUTPUT)
-        wpi.pinMode(self._cs, wpi.OUTPUT)
-        wpi.digitalWrite(self._rs, wpi.HIGH)
-        wpi.digitalWrite(self._cs, wpi.LOW)
+        bcm2835_gpio_fsel(self._rs, BCM2835_GPIO_FSEL_OUTP)
+        bcm2835_gpio_fsel(self._rst, BCM2835_GPIO_FSEL_OUTP)
 
-        wpi.digitalWrite(self._rst, wpi.LOW)
-        time.sleep(0.1)
-        wpi.digitalWrite(self._rst, wpi.HIGH)
-        time.sleep(0.1)
+        bcm2835_gpio_write(self._rst, LOW)
+        bcm2835_delay(100)
+        bcm2835_gpio_write(self._rst, HIGH)
+        bcm2835_delay(100)
 
     def _init(self):
         # Start Initial sequence
@@ -188,24 +188,16 @@ class ILI9225(object):
 
     def command(self, data):
         """Write a byte to the display as command data."""
-        wpi.pinMode(self._rs, wpi.LOW)
-        buf = bytes([data])
-        wpi.wiringPiSPIDataRW(0, buf)
+        bcm2835_gpio_write(self._rs, LOW);
+        bcm2835_spi_transfer(c);
         return self
 
-    def data_bytearray(self, data):
-        """Write an array of bytes to the display as display data."""
-        # Set RS low for command, high for data.
-        wpi.pinMode(self._rs, wpi.HIGH)
-
-        # write data a chunk at a time.
-        buf = bytes(data)
-        wpi.wiringPiSPIDataRW(0, buf)
-        return self
-
-    def register(self, cmd, word):
+    def register(self, cmd, data):
         """Write a byte command followed by 2 bytes of data."""
-        return self.command(cmd).data_bytearray(split_i16(word))
+        bcm2835_gpio_write(self._rs, LOW);
+        bcm2835_spi_transfer(cmd);
+        bcm2835_gpio_write(self._rs, HIGH);
+        bcm2835_spi_write(data);
 
     def draw_pixel(self, x, y, color):
         self.register(ILI9225_RAM_ADDR_SET1, x)

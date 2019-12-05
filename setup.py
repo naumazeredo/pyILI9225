@@ -33,6 +33,6 @@ setup(name              = 'pyILI9225',
       license           = 'MIT',
       classifiers       = classifiers,
       url               = 'https://github.com/naumazeredo/pyILI9225',
-      dependency_links  = ['wiringpi'],
-      install_requires  = ['wiringpi==2.46.0'],
+      dependency_links  = [],
+      install_requires  = [],
       packages          = find_packages())
