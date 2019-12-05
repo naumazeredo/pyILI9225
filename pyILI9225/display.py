@@ -109,8 +109,8 @@ class Display(object):
         optionally provide the GPIO pin number for the reset pin as the rst
         parameter.
         """
-        self._rs = rs
-        self._rst = rst
+        self.rs = rs
+        self.rst = rst
         self.width = width
         self.height = height
 
@@ -127,12 +127,12 @@ class Display(object):
 
     def reset(self):
         """Reset the display, if reset pin is connected."""
-        bcm2835_gpio_fsel(self._rs, BCM2835_GPIO_FSEL_OUTP)
-        bcm2835_gpio_fsel(self._rst, BCM2835_GPIO_FSEL_OUTP)
+        bcm2835_gpio_fsel(self.rs, BCM2835_GPIO_FSEL_OUTP)
+        bcm2835_gpio_fsel(self.rst, BCM2835_GPIO_FSEL_OUTP)
 
-        bcm2835_gpio_write(self._rst, LOW)
+        bcm2835_gpio_write(self.rst, LOW)
         bcm2835_delay(100)
-        bcm2835_gpio_write(self._rst, HIGH)
+        bcm2835_gpio_write(self.rst, HIGH)
         bcm2835_delay(100)
 
     def setup(self):
@@ -193,47 +193,47 @@ class Display(object):
 
     def command(self, data):
         """Write a byte to the display as command data."""
-        bcm2835_gpio_write(self._rs, LOW);
+        bcm2835_gpio_write(self.rs, LOW);
         bcm2835_spi_transfer(c);
         return self
 
     def register(self, cmd, data):
         """Write a byte command followed by a word of data."""
-        bcm2835_gpio_write(self._rs, LOW);
+        bcm2835_gpio_write(self.rs, LOW);
         bcm2835_spi_transfer(cmd);
-        bcm2835_gpio_write(self._rs, HIGH);
+        bcm2835_gpio_write(self.rs, HIGH);
         bcm2835_spi_write(data);
 
     def data_array(self, cmd, data):
         """Write a byte command followed by multiple words of data."""
-        bcm2835_gpio_write(self._rs, LOW);
+        bcm2835_gpio_write(self.rs, LOW);
         bcm2835_spi_transfer(cmd);
-        bcm2835_gpio_write(self._rs, HIGH);
+        bcm2835_gpio_write(self.rs, HIGH);
         for d in data:
             bcm2835_spi_write(d);
 
     def data_repeat(self, cmd, data, count):
         """Write a byte command followed by repeated words of data."""
-        bcm2835_gpio_write(self._rs, LOW);
+        bcm2835_gpio_write(self.rs, LOW);
         bcm2835_spi_transfer(cmd);
-        bcm2835_gpio_write(self._rs, HIGH);
+        bcm2835_gpio_write(self.rs, HIGH);
         for i in range(count):
             bcm2835_spi_write(data);
 
     def draw_pixel(self, x, y, color):
-        if x < 0 or x >= self._width: return
-        if y < 0 or y >= self._height: return
+        if x < 0 or x >= self.width: return
+        if y < 0 or y >= self.height: return
 
         self.register(RAM_ADDR_SET1, x)
         self.register(RAM_ADDR_SET2, y)
         self.register(GRAM_DATA_REG, color)
 
     def draw_fill_rect(self, x1, y1, x2, y2, color):
-        if x1 < 0 or x1 >= self._width: return
-        if y1 < 0 or y1 >= self._height: return
+        if x1 < 0 or x1 >= self.width: return
+        if y1 < 0 or y1 >= self.height: return
 
-        x2 = clamp(x2, 0, self._width - 1)
-        y2 = clamp(y2, 0, self._height - 1)
+        x2 = clamp(x2, 0, self.width - 1)
+        y2 = clamp(y2, 0, self.height - 1)
 
         w = y2 - y1 + 1
 
@@ -243,4 +243,4 @@ class Display(object):
             self.data_repeat(GRAM_DATA_REG, color, w)
 
     def clear(self, color):
-        self.draw_fill_rect(0, 0, self._width-1, self.height-1, color)
+        self.draw_fill_rect(0, 0, self.width-1, self.height-1, color)
