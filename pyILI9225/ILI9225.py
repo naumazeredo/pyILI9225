@@ -22,7 +22,7 @@
 
 import numbers
 import time
-import libbcm2835._bcm2835 import *
+from libbcm2835._bcm2835 import *
 
 
 # ILI9225 screen size
